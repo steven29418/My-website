@@ -3,42 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه چت تلگرام</title>
+    <title>لینک‌های ارتباطی</title>
     <style>
         body {
-            background-color: #ff0000; /* پس‌زمینه قرمز */
-            color: white; /* متن سفید */
-            font-family: Arial, sans-serif;
+            background-color: #8B0000; /* تم قرمز زرشکی */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
         .button {
-            background-color: #ffffff; /* دکمه سفید */
-            color: #ff0000; /* متن قرمز */
+            background-color: #FFD700; /* رنگ دکمه‌ها زرد */
+            color: #FFFFFF; /* رنگ نوشته‌ها سفید */
             padding: 15px 30px;
-            font-size: 18px;
-            border: none;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            border: none;
+            margin: 10px;
+            width: 200px;
         }
         .button:hover {
-            background-color: #f0f0f0; /* تغییر رنگ دکمه هنگام hover */
+            background-color: #FFC200; /* تغییر رنگ دکمه هنگام hover */
         }
     </style>
 </head>
 <body>
+    <!-- https://t.me/Steven_11_9 -->
+    <button class="button" onclick="window.location.href='https://t.me/Steven_11_9'">
+        ID Telegram
+    </button>
 
-    <button class="button" onclick="redirectToTelegram()">ورود به چت تلگرام</button>
+    <!-- https://rubika.ir/ad29999 -->
+    <button class="button" onclick="window.location.href='https://rubika.ir/ad29999'">
+        ID Rubika
+    </button>
 
-    <script>
-        function redirectToTelegram() {
-            window.location.href = "https://t.me/Steven_11_9";
-        }
-    </script>
-
+    <!-- https://t.me/+xKdU_QggYbpiN2Vk -->
+    <button class="button" onclick="window.location.href='https://t.me/+xKdU_QggYbpiN2Vk'">
+        Telegram Channel
+    </button>
 </body>
 </html>
