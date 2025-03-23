@@ -3,139 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه 1</title>
+    <title>صفحه اصلی</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- اضافه کردن Font Awesome برای آیکون‌ها -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        * {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://i.postimg.cc/ZKkDKZ36/1fa056ea480e34654262f731c9a6d384.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            overflow: hidden;
+            touch-action: none;
         }
 
-        body {
-            background-image: url('https://i.postimg.cc/TwD3sF9W/152337b71e5ffbfa764f8231fbd3038f.jpg'); /* پس‌زمینه دسکتاپ */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, sans-serif;
-        }
-
-        /* تغییر پس‌زمینه برای موبایل */
-        @media (max-width: 768px) {
-            body {
-                background-image: url('https://i.postimg.cc/ZKkDKZ36/1fa056ea480e34654262f731c9a6d384.jpg'); /* پس‌زمینه موبایل */
-            }
-        }
-
-        /* استایل برای "ارتباط با ما" */
-        .contact {
-            position: absolute;
-            top: 10px;
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-
-        /* در موبایل: سمت راست بالا */
-        @media (max-width: 768px) {
-            .contact {
-                right: 15px;
-                font-size: 18px;
-            }
-        }
-
-        /* در دسکتاپ: مرکز بالای صفحه */
-        @media (min-width: 769px) {
-            .contact {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        .button-container {
-            position: absolute;
-            top: 50px; /* زیر "ارتباط با ما" */
-            display: flex;
-            gap: 10px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-        }
-
-        .button {
-            background-color: #FFD700;
-            color: #000;
-            padding: 10px 20px;
+        /* پیام خوش‌آمدگویی */
+        .welcome-message {
+            padding: 40px;
             text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            border: none;
-            width: 150px;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background-color: #FFC200;
-        }
-
-        /* استایل دکمه‌های جابجایی */
-        .navigation {
-            position: absolute;
-            bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .nav-button {
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
+            margin: 20px;
             font-size: 24px;
-            padding: 10px 15px;
-            border: none;
+            font-weight: 600;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: transparent;
+        }
+
+        .welcome-message h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Menu icon */
+        .menu-icon {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            background: url('https://i.postimg.cc/g2QXGnVS/3917215.png') no-repeat center center;
+            background-size: contain;
             cursor: pointer;
-            border-radius: 5px;
+            z-index: 1002;
         }
 
-        .nav-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
+        /* Sidebar menu */
+        .side-panel {
+            position: fixed;
+            top: 0;
+            left: -270px;
+            width: 270px;
+            height: 100%;
+            background-color: #F5E6D3;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s ease-in-out;
+            padding: 20px;
+            z-index: 1001;
         }
 
-        .page-number {
-            color: white;
+        .side-panel.open {
+            left: 0;
+        }
+
+        .side-panel .title {
             font-size: 20px;
             font-weight: bold;
+            margin-bottom: 20px;
+            color: black;
         }
+
+        .side-panel .btn {
+            background-color: #D8C5B1;
+            color: black;
+            padding: 12px;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.1s ease, background 0.2s;
+        }
+
+        .side-panel .btn i {
+            margin-right: 10px;
+        }
+
+        .side-panel .btn:hover {
+            background-color: #C4B6A3;
+        }
+
+        .side-panel .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Dark overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+
+        /* Modal pop-up */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            background-color: #E6D7C3;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1003;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        /* Close button (X) */
+        .modal .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal .title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Contact buttons */
+        .modal a {
+            display: block;
+            color: black;
+            background-color: #C4B6A3;
+            padding: 12px;
+            margin: 5px 0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.1s ease, background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .modal a i {
+            margin-right: 10px;
+        }
+
+        .modal a:hover {
+            background-color: #B5A693;
+        }
+
+        .modal a:active {
+            transform: scale(0.95);
+        }
+
+        /* Description text */
+        .modal p {
+            font-size: 16px;
+            color: black;
+            line-height: 1.5;
+        }
+
     </style>
 </head>
 <body>
-    <!-- "ارتباط با ما" -->
-    <div class="contact">Contact Us</div>
 
-    <!-- دکمه‌های ارتباطی -->
-    <div class="button-container">
-        <button class="button" onclick="window.location.href='https://t.me/Steven_11_9'">
-            ID Telegram
+    <!-- Menu icon -->
+    <div class="menu-icon" onclick="toggleMenu()"></div>
+
+    <!-- Sidebar menu -->
+    <div class="side-panel" id="sidePanel">
+        <div class="title">Menu</div>
+        <!-- دکمه "تماس با من" با آیکون جدید -->
+        <button class="btn" onclick="openModal('contactModal')">
+            <i class="fas fa-phone-alt"></i> تماس با من
         </button>
-        <button class="button" onclick="window.location.href='https://rubika.ir/ad29999'">
-            ID Rubika
+        <!-- دکمه "توضیحات" با آیکون جدید -->
+        <button class="btn" onclick="openModal('infoModal')">
+            <i class="fas fa-info-circle"></i> توضیحات
         </button>
-        <button class="button" onclick="window.location.href='https://t.me/+xKdU_QggYbpiN2Vk'">
-            Telegram Channel
+        <!-- دکمه "وب‌سایت" با آیکون وب‌سایت -->
+        <button class="btn" onclick="openModal('websiteModal')">
+            <i class="fas fa-globe"></i> وب‌سایت
         </button>
     </div>
 
-    <!-- دکمه‌های جابجایی بین صفحات -->
-    <div class="navigation">
-        <button class="nav-button" onclick="window.location.href='page2.html'">⬅</button>
-        <span class="page-number">1</span>
-        <button class="nav-button" onclick="window.location.href='page2.html'">➡</button>
+    <!-- Dark overlay -->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+
+    <!-- Contact modal -->
+    <div class="modal" id="contactModal">
+        <button class="close-btn" onclick="closeModal()">×</button> 
+        <div class="title">تماس با من</div>
+        <a href="https://t.me/Steven_11_9"><i class="fab fa-telegram-plane"></i>Telegram ID</a>
+        <a href="https://rubika.ir/ad29999"><i class="fas fa-comments"></i>Rubika ID</a>
     </div>
+
+    <!-- Description modal -->
+    <div class="modal" id="infoModal">
+        <button class="close-btn" onclick="closeModal()">×</button> 
+        <div class="title">توضیحات</div>
+        <p id="descText">
+            این سایت را به منظور معرفی خودم ساخته‌ام،
+            تا بعضی از افراد با من آشنا شوند و اطلاعات بیشتری درباره من بدانند.
+            این سایت به عنوان بیوگرافی من عمل می‌کند.
+            خوشحال می‌شوم که نظرات شما را بشنوم تا بتوانم این سایت را بهتر کنم.
+        </p>
+    </div>
+
+    <!-- Website modal -->
+    <div class="modal" id="websiteModal">
+        <button class="close-btn" onclick="closeModal()">×</button> 
+        <div class="title">وب‌سایت</div>
+        <p>می‌توانید از طریق دکمه زیر به وب‌سایت من دسترسی پیدا کنید:</p>
+        <a href="http://steven29418.github.io/My-website/" target="_blank"><i class="fas fa-link"></i> باز کردن وب‌سایت</a>
+    </div>
+
+    <script>
+        // Function to toggle the sidebar menu
+        function toggleMenu() {
+            var sidePanel = document.getElementById('sidePanel');
+            sidePanel.classList.toggle('open');
+        }
+
+        // Function to open a modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Function to close all modals
+        function closeModal() {
+            var modals = document.querySelectorAll('.modal');
+            modals.forEach(function(modal) {
+                modal.style.display = 'none';
+            });
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+
 </body>
 </html>
