@@ -5,48 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لینک‌های ارتباطی</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            background-color: #8B0000; /* تم قرمز زرشکی */
+            background-image: url('https://i.postimg.cc/ZKkDKZ36/1fa056ea480e34654262f731c9a6d384.jpg');
+            background-size: cover; /* تصویر کل صفحه را بپوشاند */
+            background-position: center; /* تصویر وسط باشد */
+            background-repeat: no-repeat; /* تکرار نشود */
+            height: 100vh; /* کل صفحه را بگیرد */
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
             font-family: Arial, sans-serif;
         }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap; /* در موبایل، دکمه‌ها به خط بعدی بروند */
+            justify-content: center;
+            gap: 15px; /* فاصله بین دکمه‌ها */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5); /* پس‌زمینه نیمه‌شفاف برای خوانایی بهتر */
+            border-radius: 10px;
+        }
         .button {
-            background-color: #FFD700; /* رنگ دکمه‌ها زرد */
-            color: #FFFFFF; /* رنگ نوشته‌ها سفید */
+            background-color: #FFD700; /* رنگ طلایی */
+            color: #000; /* رنگ نوشته مشکی */
             padding: 15px 30px;
             text-align: center;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 18px;
             border-radius: 5px;
             cursor: pointer;
             border: none;
-            margin: 10px;
             width: 200px;
+            transition: 0.3s;
         }
         .button:hover {
-            background-color: #FFC200; /* تغییر رنگ دکمه هنگام hover */
+            background-color: #FFC200; /* رنگ دکمه هنگام هاور */
+        }
+
+        /* استایل مخصوص موبایل */
+        @media (max-width: 768px) {
+            .button {
+                width: 90%; /* دکمه‌ها در موبایل تمام عرض شوند */
+                font-size: 16px;
+            }
+            .button-container {
+                flex-direction: column; /* دکمه‌ها زیر هم قرار بگیرند */
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- https://t.me/Steven_11_9 -->
-    <button class="button" onclick="window.location.href='https://t.me/Steven_11_9'">
-        ID Telegram
-    </button>
-
-    <!-- https://rubika.ir/ad29999 -->
-    <button class="button" onclick="window.location.href='https://rubika.ir/ad29999'">
-        ID Rubika
-    </button>
-
-    <!-- https://t.me/+xKdU_QggYbpiN2Vk -->
-    <button class="button" onclick="window.location.href='https://t.me/+xKdU_QggYbpiN2Vk'">
-        Telegram Channel
-    </button>
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='https://t.me/Steven_11_9'">
+            ID Telegram
+        </button>
+        <button class="button" onclick="window.location.href='https://rubika.ir/ad29999'">
+            ID Rubika
+        </button>
+        <button class="button" onclick="window.location.href='https://t.me/+xKdU_QggYbpiN2Vk'">
+            Telegram Channel
+        </button>
+    </div>
 </body>
 </html>
