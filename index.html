@@ -3,64 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لینک‌های ارتباطی</title>
+    <title>صفحه 1</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background-image: url('https://i.postimg.cc/ZKkDKZ36/1fa056ea480e34654262f731c9a6d384.jpg');
-            background-size: cover; /* تصویر کل صفحه را بپوشاند */
-            background-position: center; /* تصویر وسط باشد */
-            background-repeat: no-repeat; /* تکرار نشود */
-            height: 100vh; /* کل صفحه را بگیرد */
+            background-image: url('https://i.postimg.cc/TwD3sF9W/152337b71e5ffbfa764f8231fbd3038f.jpg'); /* پس‌زمینه دسکتاپ */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             font-family: Arial, sans-serif;
         }
+
+        /* تغییر پس‌زمینه برای موبایل */
+        @media (max-width: 768px) {
+            body {
+                background-image: url('https://i.postimg.cc/ZKkDKZ36/1fa056ea480e34654262f731c9a6d384.jpg'); /* پس‌زمینه موبایل */
+            }
+        }
+
+        /* استایل برای "ارتباط با ما" */
+        .contact {
+            position: absolute;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* در موبایل: سمت راست بالا */
+        @media (max-width: 768px) {
+            .contact {
+                right: 15px;
+                font-size: 18px;
+            }
+        }
+
+        /* در دسکتاپ: مرکز بالای صفحه */
+        @media (min-width: 769px) {
+            .contact {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
         .button-container {
+            position: absolute;
+            top: 50px; /* زیر "ارتباط با ما" */
             display: flex;
-            flex-wrap: wrap; /* در موبایل، دکمه‌ها به خط بعدی بروند */
-            justify-content: center;
-            gap: 15px; /* فاصله بین دکمه‌ها */
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5); /* پس‌زمینه نیمه‌شفاف برای خوانایی بهتر */
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
         }
+
         .button {
-            background-color: #FFD700; /* رنگ طلایی */
-            color: #000; /* رنگ نوشته مشکی */
-            padding: 15px 30px;
+            background-color: #FFD700;
+            color: #000;
+            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
             border: none;
-            width: 200px;
+            width: 150px;
             transition: 0.3s;
         }
+
         .button:hover {
-            background-color: #FFC200; /* رنگ دکمه هنگام هاور */
+            background-color: #FFC200;
         }
 
-        /* استایل مخصوص موبایل */
-        @media (max-width: 768px) {
-            .button {
-                width: 90%; /* دکمه‌ها در موبایل تمام عرض شوند */
-                font-size: 16px;
-            }
-            .button-container {
-                flex-direction: column; /* دکمه‌ها زیر هم قرار بگیرند */
-                width: 90%;
-            }
+        /* استایل دکمه‌های جابجایی */
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 24px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .page-number {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
+    <!-- "ارتباط با ما" -->
+    <div class="contact">Contact Us</div>
+
+    <!-- دکمه‌های ارتباطی -->
     <div class="button-container">
         <button class="button" onclick="window.location.href='https://t.me/Steven_11_9'">
             ID Telegram
@@ -71,6 +129,13 @@
         <button class="button" onclick="window.location.href='https://t.me/+xKdU_QggYbpiN2Vk'">
             Telegram Channel
         </button>
+    </div>
+
+    <!-- دکمه‌های جابجایی بین صفحات -->
+    <div class="navigation">
+        <button class="nav-button" onclick="window.location.href='page2.html'">⬅</button>
+        <span class="page-number">1</span>
+        <button class="nav-button" onclick="window.location.href='page2.html'">➡</button>
     </div>
 </body>
 </html>
